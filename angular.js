@@ -2,10 +2,31 @@ angular.module("askTrump", ['ngAnimate'])
     .controller('Ctrl', function($scope) {
         $scope.hideMe = false;
         $scope.question = "";
-        $scope.output = "dummy text"
+        $scope.output = ""
         $scope.clickMe = function() {
             console.log($scope.question);
             $scope.hideMe = !$scope.hideMe
+            var random = Math.floor(Math.random() * 23);
+            var inputArr = $scope.question.split('?').join(' ').split(' ');
+            console.log(inputArr);
+            for (var i = 0; i < inputArr.length; i++) {
+                for (var j = 0; j < $scope.trumpisms.length; j++) {
+                    for (var k = 0; k < $scope.trumpisms[j].keywords.length; k++) {
+                        if (inputArr[i].toLowerCase() === $scope.trumpisms[j].keywords[k]) {
+                            $scope.output = $scope.trumpisms[j].messages
+                            [Math.floor(Math.random() * $scope.trumpisms[j].messages.length)];
+                            console.log($scope.output);
+                            return;
+                        } else {
+                          $scope.output = $scope.trumpisms[random].messages
+                          [Math.floor(Math.random() * $scope.trumpisms[random].messages.length)];
+                          console.log($scope.output);
+                          return;
+                        }
+                    }
+                }
+            }
+            }
 
 
 
@@ -157,19 +178,19 @@ angular.module("askTrump", ['ngAnimate'])
                 ]
             }];
 
-            $scope.trumpify = function(question) {
-                var output = '';
-                var inputArr = $scope.question.split('?').join(' ').split(' ');
-                for (var i = 0; i < inputArr.length; i++) {
-                    for (var j = 0; j < $scope.trumpisms.length; i++) {
-                        for (var k = 0; k < $scope.trumpisms[j].keywords.length; i++) {
-                            if (inputArr[i].toLowerCase() === trumpisms[j].keywords[k]) {
-                                $scope.output = trumpisms[j].messages[Math.floor(Math.random() * trumpisms[j].messages.length)];
-                                return;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+            // $scope.trumpify = function(question) {
+            //     var output = '';
+            //     var inputArr = $scope.question.split('?').join(' ').split(' ');
+            //     for (var i = 0; i < inputArr.length; i++) {
+            //         for (var j = 0; j < $scope.trumpisms.length; i++) {
+            //             for (var k = 0; k < $scope.trumpisms[j].keywords.length; i++) {
+            //                 if (inputArr[i].toLowerCase() === trumpisms[j].keywords[k]) {
+            //                     $scope.output = trumpisms[j].messages[Math.floor(Math.random() * trumpisms[j].messages.length)];
+            //                     return;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+
     })

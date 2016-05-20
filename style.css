@@ -18,8 +18,9 @@ h1 {
 
 }
 
-#textBox {
-  margin-top: 40%
+label {
+  font-size: 20px;
+  margin-top: 40%;
 }
 
 #trumpMessage{

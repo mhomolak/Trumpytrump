@@ -18,13 +18,13 @@
    loop="loop"></audio>
    <div class="container">
     <div id="div1"class = "col-md-6 text-center">
-      <input id="textBox" type="text" ng-model="question">
+      <label for="">Enter a question for Donald Trump!</label>
+      <input id="textBox" type="text" ng-model="question" style="width:350px;">
       <button ng-click="clickMe()" >Submit</button>
     </div>
     <div id="div2"class = "col-md-6 text-center">
       <img class="element-animation" src="./images/unnamed.png">
-      <p ng-show="hideMe" ng-animate="animate" id="trumpMessage">
-        {{output}}</p>
+      <p ng-show="hideMe" ng-animate="animate" id="trumpMessage"><h4>{{output}}</h4></p>
     </div>
   </div>
 </body>
