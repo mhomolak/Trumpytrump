@@ -6,7 +6,7 @@ angular.module("askTrump", ['ngAnimate'])
         $scope.clickMe = function() {
             console.log($scope.question);
             $scope.hideMe = !$scope.hideMe
-            var random = Math.floor(Math.random() * 23);
+            var randomMess = Math.floor(Math.random() * 23);
             var inputArr = $scope.question.split('?').join(' ').split(' ');
             console.log(inputArr);
             for (var i = 0; i < inputArr.length; i++) {
@@ -18,10 +18,10 @@ angular.module("askTrump", ['ngAnimate'])
                             console.log($scope.output);
                             return;
                         } else {
-                          $scope.output = $scope.trumpisms[random].messages
-                          [Math.floor(Math.random() * $scope.trumpisms[random].messages.length)];
+                          $scope.output = $scope.trumpisms[randomMess].messages
+                          [Math.floor(Math.random() * $scope.trumpisms[randomMess].messages.length)];
                           console.log($scope.output);
-                          return;
+                          // return;
                         }
                     }
                 }
