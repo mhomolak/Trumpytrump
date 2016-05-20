@@ -6,6 +6,7 @@
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/animatecss/3.5.1/animate.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="app.js"></script>
@@ -13,18 +14,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body ng-controller="Ctrl">
+  <div class="back"></div>
     <h1>What would Donald do?</h1><hr>
   <audio id="my_audio" src="https://ia802604.us.archive.org/1/items/HailToTheChief_482/hail_to_the_chief.mp3"
    loop="loop"></audio>
    <div class="container">
     <div id="div1"class = "col-md-6 text-center">
       <label for="">Enter a question for Donald Trump!</label>
-      <input id="textBox" type="text" ng-model="question" style="width:350px;">
+      <input id="textBox" type="text" ng-model="question" style="width:350px;" required>
       <button ng-click="clickMe()" >Submit</button>
     </div>
     <div id="div2"class = "col-md-6 text-center">
-      <img class="element-animation" src="./images/unnamed.png">
-      <p ng-show="hideMe" ng-animate="animate" id="trumpMessage"><h4>{{output}}</h4></p>
+      <img ng-hide="hideMe" class="element-animation" src="./images/unnamed.png">
+      <h3 ng-hide="hideMe" class="trumpText" id="trumpMessage" ng-bind="output"></h3>
     </div>
   </div>
 </body>

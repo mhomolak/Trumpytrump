@@ -1,31 +1,38 @@
 angular.module("askTrump", ['ngAnimate'])
-    .controller('Ctrl', function($scope) {
-        $scope.hideMe = false;
+    .controller('Ctrl', function($scope, $timeout) {
+        $scope.hideMe = true;
         $scope.question = "";
-        $scope.output = ""
+        $scope.output = "";
+
         $scope.clickMe = function() {
             console.log($scope.question);
-            $scope.hideMe = !$scope.hideMe
-            var randomMess = Math.floor(Math.random() * 23);
-            var inputArr = $scope.question.split('?').join(' ').split(' ');
-            console.log(inputArr);
-            for (var i = 0; i < inputArr.length; i++) {
+            $scope.hideMe = true;
+            $timeout(function(){
+              var randomMess = Math.floor(Math.random() * 23);
+              var inputArr = $scope.question.split('?').join(' ').split(' ');
+              console.log(inputArr);
+              for (var i = 0; i < inputArr.length; i++) {
                 for (var j = 0; j < $scope.trumpisms.length; j++) {
-                    for (var k = 0; k < $scope.trumpisms[j].keywords.length; k++) {
-                        if (inputArr[i].toLowerCase() === $scope.trumpisms[j].keywords[k]) {
-                            $scope.output = $scope.trumpisms[j].messages
-                            [Math.floor(Math.random() * $scope.trumpisms[j].messages.length)];
-                            console.log($scope.output);
-                            return;
-                        } else {
-                          $scope.output = $scope.trumpisms[randomMess].messages
-                          [Math.floor(Math.random() * $scope.trumpisms[randomMess].messages.length)];
-                          console.log($scope.output);
-                          // return;
-                        }
+                  for (var k = 0; k < $scope.trumpisms[j].keywords.length; k++) {
+                    if (inputArr[i].toLowerCase() === $scope.trumpisms[j].keywords[k]) {
+                      $scope.hideMe = false;
+
+                      $scope.output = $scope.trumpisms[j].messages
+                      [Math.floor(Math.random() * $scope.trumpisms[j].messages.length)];
+                      console.log($scope.output);
+                      return;
+                    } else {
+                      $scope.hideMe = false;
+
+                      $scope.output = $scope.trumpisms[randomMess].messages
+                      [Math.floor(Math.random() * $scope.trumpisms[randomMess].messages.length)];
+                      console.log($scope.output);
+                      // return;
                     }
+                  }
                 }
-            }
+              }
+            },500);
             }
 
 
