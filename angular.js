@@ -1,13 +1,13 @@
 angular.module("askTrump", ['ngAnimate'])
 .controller('Ctrl', function($scope){
   $scope.hideMe = false;
+  $scope.question = "";
   $scope.clickMe = function () {
+    console.log($scope.question);
      $scope.hideMe = !$scope.hideMe
-  }
 
-})
 
-var trumpisms = [
+$scope.trumpisms = [
     {
         "keywords": ["america", "usa", "united states", "the us", "jobs", "economy"],
         "messages": [
@@ -228,12 +228,14 @@ var trumpisms = [
     }
 ];
 
-function trumpify(question) {
-    var inputArr = question.split('?').join(' ').split(' ');
+$scope.trumpify = function(question) {
+    var inputArr = $scope.question.split('?').join(' ').split(' ');
     for (var i = 0; i < inputArr.length; i++) {
-        for (var j = 0; j < trumpisms.length; i++) {
-            for (var k = 0; k < trumpisms[j].keywords.length; i++) {
+        for (var j = 0; j < $scope.trumpisms.length; i++) {
+            for (var k = 0; k < $scope.trumpisms[j].keywords.length; i++) {
             }
         }
     }
 }
+}
+})
