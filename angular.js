@@ -1,1 +1,1 @@
-angular.module("askTrump", [])
+angular.module("askTrump", ['ngAnimate'])
